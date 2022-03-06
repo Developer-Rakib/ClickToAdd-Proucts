@@ -28,7 +28,7 @@ ul li {
     padding: 7px;
     border-top: 1px solid rgb(185, 185, 185);
     font-weight: 800;
-    text-transform: capitalize;
+    text-transform: uppercase;
 }
 
 input {
