@@ -7,13 +7,20 @@ let prductPrice = element('#product-price')
 
 // click event function
 const saveDataToLocalStr = () => {
-    let products = element('#products');
-    products.innerHTML = "";
-    let data = getItem();
-    data[productName.value] = prductPrice.value;
-    let dataConvert = JSON.stringify(data);
-    localStorage.setItem('product', dataConvert);
-    displyToUI(data);
+    if (productName.value == "" || prductPrice.value == "") {
+        return;
+    }
+    if (isNaN(productName.value) == false || isNaN(prductPrice.value) == true) {
+        alert("enter valid input");
+    } else {
+        let products = element('#products');
+        products.innerHTML = "";
+        let data = getItem();
+        data[productName.value] = prductPrice.value;
+        let dataConvert = JSON.stringify(data);
+        localStorage.setItem('product', dataConvert);
+        displyToUI(data);
+    }
 
     productName.value = "";
     prductPrice.value = "";
@@ -23,10 +30,7 @@ const saveDataToLocalStr = () => {
 // display poduct in UI 
 const displyToUI = (data) => {
     let products = element('#products');
-    console.log(data);
     for (const key in data) {
-        console.log(key, data[key]);
-
         let li = document.createElement("li");
         li.innerText = `${key} : ${data[key]}`;
         products.appendChild(li)

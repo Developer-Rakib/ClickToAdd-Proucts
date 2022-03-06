@@ -5,9 +5,16 @@ body {
     justify-content: center;
     font-family: 'Poppins', sans-serif;
 }
+h1{
+    color: #1290ff;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 0.5px;
+    text-align: center;
+
+}
 
 div {
-    margin-top: 100px;
+    margin-top: 70px;
 }
 
 ul {
