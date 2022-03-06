@@ -32,7 +32,7 @@ const displyToUI = (data) => {
     let products = element('#products');
     for (const key in data) {
         let li = document.createElement("li");
-        li.innerText = `${key} : ${data[key]}`;
+        li.innerText = `${key}, Price : ${data[key]}`;
         products.appendChild(li)
 
     }
