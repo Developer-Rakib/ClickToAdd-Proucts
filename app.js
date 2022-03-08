@@ -19,7 +19,7 @@ const saveDataToLocalStr = () => {
         data[productName.value] = prductPrice.value;
         let dataConvert = JSON.stringify(data);
         localStorage.setItem('product', dataConvert);
-        displyToUI(data);
+        displyToUI();
     }
 
     productName.value = "";
@@ -28,7 +28,8 @@ const saveDataToLocalStr = () => {
 }
 
 // display poduct in UI 
-const displyToUI = (data) => {
+const displyToUI = () => {
+    let data = getItem();
     let products = element('#products');
     for (const key in data) {
         let li = document.createElement("li");
@@ -51,14 +52,16 @@ const getItem = () => {
     }
     return productObj;
 }
+displyToUI();
 
-// display poduct form local store 
-const displayItemFromLocalStr = () => {
-    let cart = getItem();
-    displyToUI(cart);
-}
+// // display poduct form local store 
+// const displayItemFromLocalStr = () => {
+//     let cart = getItem();
+//     displyToUI(cart);
+// }
 
-displayItemFromLocalStr();
+// displayItemFromLocalStr();
+
 
 const deleteData = () => {
     localStorage.removeItem('product');
